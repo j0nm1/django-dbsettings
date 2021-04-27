@@ -305,7 +305,7 @@ class ImageValue(Value):
         hashed_name = md5(str(time.time()).encode()).hexdigest() + value.name[-4:]
         image_path = pjoin(self._upload_to, hashed_name)
 
-        default_storage.save(image_path, value.file)
+        image_path = default_storage.save(image_path, value.file)
 
         # Delete old file
         if oldvalue and self._delete_old:
